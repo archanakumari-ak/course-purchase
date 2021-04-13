@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Coursesales from "./Coursesales";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface course {
+  name: string;
+  price: number;
+  active: boolean;
+}
+
+class App extends Component {
+  render() {
+    const courses: course[] = [
+      { name: "Java", price: 200, active: false },
+      { name: "JavaScript", price: 150, active: false },
+      { name: "Photoshop", price: 300, active: false },
+      { name: "SM Marketing", price: 250, active: false },
+    ];
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <h1 className='App-title'>Welcome to Course Purchase</h1>
+        </header>
+        <Coursesales items={courses} />
+      </div>
+    );
+  }
 }
 
 export default App;
